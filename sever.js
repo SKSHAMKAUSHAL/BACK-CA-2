@@ -2,7 +2,7 @@
 require('dotenv').config()
 const express = require("express");
 const app = express();
-const {User} = require('./model/user');
+const {user} = require('./model/user');
 const Port=process.env.Port||8080;
 app.use(express.json());
 
@@ -11,12 +11,12 @@ app.post("/", (req, res) => {
 
 
     if (!email) {
-        return res.status(400).json({ error: "ERROR email cannot be empty" });
+        return res.status(400).json({ error: "ERROR ,email cannot be empty" });
     }
 
 
     if (!password) {
-        return res.status(400).json({ error: "  ERROR password can't be empty" });
+        return res.status(400).json({ error: "  ERROR, password can't be empty" });
     }
 
 
@@ -25,7 +25,7 @@ app.post("/", (req, res) => {
 
 
 
-app.listen(port, () => {
+app.listen(Port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
 
